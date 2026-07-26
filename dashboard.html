@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - FanZora</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<header class="header">
+
+  <div class="logo">🏆 FanZora</div>
+
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="contests.html">Contests</a>
+    <a href="wallet.html">Wallet</a>
+    <a href="leaderboard.html">Leaderboard</a>
+    <a href="profile.html">Profile</a>
+  </nav>
+
+</header>
+
+<section class="hero">
+
+  <h1>Welcome Back 👋</h1>
+
+  <h2 id="userName">Loading...</h2>
+
+  <p>Manage your fantasy contests and track your progress.</p>
+
+</section>
+
+<section class="stats">
+
+  <div class="stat-box">
+    <h2>₹<span id="wallet">0</span></h2>
+    <p>Wallet Balance</p>
+  </div>
+
+  <div class="stat-box">
+    <h2 id="joinedContests">0</h2>
+    <p>Joined Contests</p>
+  </div>
+
+  <div class="stat-box">
+    <h2>₹<span id="winnings">0</span></h2>
+    <p>Total Winnings</p>
+  </div>
+
+</section>
+
+<section class="games">
+
+  <div class="card">
+    <h2>🏏 Cricket Mega Contest</h2>
+    <p>Entry Fee: ₹49</p>
+    <p>Prize Pool: ₹1,00,000</p>
+    <button class="btn" onclick="joinContest()">
+      Join Contest
+    </button>
+  </div>
+
+  <div class="card">
+    <h2>⚽ Football League</h2>
+    <p>Entry Fee: ₹29</p>
+    <p>Prize Pool: ₹50,000</p>
+    <button class="btn" onclick="joinContest()">
+      Join Contest
+    </button>
+  </div>
+
+  <div class="card">
+    <h2>💰 My Wallet</h2>
+    <p>Check your balance and withdrawals.</p>
+    <button class="btn secondary" onclick="goTo('wallet.html')">
+      Open Wallet
+    </button>
+  </div>
+
+</section>
+
+<section style="text-align:center; margin:30px;">
+
+  <button class="btn" onclick="logoutUser()">
+    Logout
+  </button>
+
+</section>
+
+<footer style="text-align:center; padding:20px;">
+  <p>© 2026 FanZora. All Rights Reserved.</p>
+</footer>
+
+<script type="module" src="assets/js/script.js"></script>
+
+</body>
+</html>

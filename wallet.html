@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wallet - FanZora</title>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="logo">🏆 FanZora</div>
+
+<nav>
+<a href="dashboard.html">Dashboard</a>
+<a href="contests.html">Contests</a>
+<a href="wallet.html">Wallet</a>
+<a href="leaderboard.html">Leaderboard</a>
+<a href="profile.html">Profile</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
+<h1>💰 My Wallet</h1>
+
+<p>Manage your deposits, winnings and withdrawals.</p>
+
+</section>
+
+<section class="stats">
+
+<div class="stat-box">
+<h2 id="wallet">₹0</h2>
+<p>Total Balance</p>
+</div>
+
+<div class="stat-box">
+<h2 id="winnings">₹0</h2>
+<p>Winning Balance</p>
+</div>
+
+<div class="stat-box">
+<h2 id="bonus">₹0</h2>
+<p>Bonus Balance</p>
+</div>
+
+</section>
+
+<section class="games">
+
+<div class="card">
+<h2>➕ Add Cash</h2>
+<p>Securely add money to your wallet.</p>
+<button class="btn" onclick="addCash()">
+Add Cash
+</button>
+</div>
+
+<div class="card">
+<h2>💸 Withdraw</h2>
+<p>Withdraw your winnings safely.</p>
+<button class="btn secondary" onclick="withdrawMoney()">
+Withdraw
+</button>
+</div>
+
+<div class="card">
+<h2>📜 Transaction History</h2>
+<p>No transactions found.</p>
+</div>
+
+</section>
+
+<script type="module" src="assets/js/script.js"></script>
+
+</body>
+</html>
