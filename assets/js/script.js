@@ -43,8 +43,8 @@ window.signupUser = async () => {
 
     await setDoc(doc(db, "users", user.user.uid), {
       fullName: name,
-      email: email,
-      mobile: mobile,
+      email,
+      mobile,
       wallet: 0,
       winnings: 0,
       bonus: 0,
@@ -84,7 +84,7 @@ window.logoutUser = async () => {
   window.location.href = "login.html";
 };
 
-// Dashboard / Wallet
+// Dashboard / Profile Data
 onAuthStateChanged(auth, async (user) => {
 
   if (!user) return;
@@ -96,16 +96,20 @@ onAuthStateChanged(auth, async (user) => {
   const data = snap.data();
 
   const userName = document.getElementById("userName");
+  const userEmail = document.getElementById("userEmail");
+  const userMobile = document.getElementById("userMobile");
   const wallet = document.getElementById("wallet");
   const winnings = document.getElementById("winnings");
   const bonus = document.getElementById("bonus");
   const joined = document.getElementById("joinedContests");
 
-  if (userName) userName.innerText = "Welcome, " + data.fullName;
-  if (wallet) wallet.innerText = "₹" + data.wallet;
-  if (winnings) winnings.innerText = "₹" + data.winnings;
-  if (bonus) bonus.innerText = "₹" + data.bonus;
-  if (joined) joined.innerText = data.joinedContests;
+  if (userName) userName.innerText = data.fullName;
+  if (userEmail) userEmail.innerText = data.email;
+  if (userMobile) userMobile.innerText = data.mobile;
+  if (wallet) wallet.innerText = "₹" + (data.wallet || 0);
+  if (winnings) winnings.innerText = "₹" + (data.winnings || 0);
+  if (bonus) bonus.innerText = "₹" + (data.bonus || 0);
+  if (joined) joined.innerText = data.joinedContests || 0;
 
 });
 
@@ -118,7 +122,7 @@ window.withdrawMoney = () => {
   alert("Coming Soon");
 };
 
-// Contest Join
+// Contest
 window.joinContest = async () => {
 
   const user = auth.currentUser;
@@ -129,14 +133,13 @@ window.joinContest = async () => {
   }
 
   const userRef = doc(db, "users", user.uid);
-
   const snap = await getDoc(userRef);
 
   if (!snap.exists()) return;
 
   const data = snap.data();
 
-  if (data.wallet < 49) {
+  if ((data.wallet || 0) < 49) {
     alert("Insufficient Wallet Balance");
     return;
   }
@@ -147,7 +150,6 @@ window.joinContest = async () => {
   });
 
   alert("Contest Joined Successfully!");
-
   location.reload();
 
 };
@@ -158,7 +160,7 @@ window.viewContest = () => {
 
 // Profile
 window.editProfile = () => {
-  alert("Coming Soon");
+  alert("Edit Profile feature coming soon.");
 };
 
 console.log("🏆 FanZora Ready");
