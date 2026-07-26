@@ -10,7 +10,9 @@ import {
 import {
   doc,
   setDoc,
-  getDoc
+  getDoc,
+  updateDoc,
+  increment
 } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-firestore.js";
 
 // Navigation
@@ -82,8 +84,9 @@ window.logoutUser = async () => {
   window.location.href = "login.html";
 };
 
-// Dashboard / Wallet Data
+// Dashboard / Wallet
 onAuthStateChanged(auth, async (user) => {
+
   if (!user) return;
 
   const snap = await getDoc(doc(db, "users", user.uid));
@@ -103,17 +106,59 @@ onAuthStateChanged(auth, async (user) => {
   if (winnings) winnings.innerText = "₹" + data.winnings;
   if (bonus) bonus.innerText = "₹" + data.bonus;
   if (joined) joined.innerText = data.joinedContests;
+
 });
 
 // Wallet
-window.addCash = () => alert("Coming Soon");
-window.withdrawMoney = () => alert("Coming Soon");
+window.addCash = () => {
+  alert("Coming Soon");
+};
 
-// Contest
-window.joinContest = () => alert("Contest Joined");
-window.viewContest = () => alert("Coming Soon");
+window.withdrawMoney = () => {
+  alert("Coming Soon");
+};
+
+// Contest Join
+window.joinContest = async () => {
+
+  const user = auth.currentUser;
+
+  if (!user) {
+    alert("Please login first.");
+    return;
+  }
+
+  const userRef = doc(db, "users", user.uid);
+
+  const snap = await getDoc(userRef);
+
+  if (!snap.exists()) return;
+
+  const data = snap.data();
+
+  if (data.wallet < 49) {
+    alert("Insufficient Wallet Balance");
+    return;
+  }
+
+  await updateDoc(userRef, {
+    wallet: increment(-49),
+    joinedContests: increment(1)
+  });
+
+  alert("Contest Joined Successfully!");
+
+  location.reload();
+
+};
+
+window.viewContest = () => {
+  alert("Coming Soon");
+};
 
 // Profile
-window.editProfile = () => alert("Coming Soon");
+window.editProfile = () => {
+  alert("Coming Soon");
+};
 
 console.log("🏆 FanZora Ready");
