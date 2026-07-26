@@ -4,43 +4,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - FanZora</title>
+  <title>FanZora - Fantasy Sports</title>
 
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
 
-  <div class="login-box">
+<header class="header">
+  <div class="logo">🏆 FanZora</div>
 
-    <h1>🏆 FanZora</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="signup.html">Sign Up</a>
+  </nav>
+</header>
 
-    <h2>Welcome Back</h2>
+<section class="hero">
+  <h1>India's Fantasy Sports Platform</h1>
 
-    <input type="email" id="email" placeholder="Enter Email">
+  <p>
+    Create your fantasy team, join contests, compete with players,
+    and enjoy the FanZora experience.
+  </p>
 
-    <input type="password" id="password" placeholder="Enter Password">
-
-    <button class="btn" onclick="loginUser()">
+  <div class="hero-buttons">
+    <button class="btn" onclick="goTo('login.html')">
       Login
     </button>
-
-    <p>Don't have an account?</p>
 
     <button class="btn secondary" onclick="goTo('signup.html')">
       Create Account
     </button>
+  </div>
+</section>
 
-    <br><br>
+<section class="stats">
 
-    <a href="index.html" style="color:#8b5cf6;text-decoration:none;">
-      ← Back to Home
-    </a>
-
+  <div class="stat-box">
+    <h2>10K+</h2>
+    <p>Users</p>
   </div>
 
-  <script type="module" src="assets/js/script.js"></script>
+  <div class="stat-box">
+    <h2>₹0</h2>
+    <p>Bonus for New Users</p>
+  </div>
+
+  <div class="stat-box">
+    <h2>24×7</h2>
+    <p>Support</p>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 FanZora. All Rights Reserved.
+</footer>
+
+<script type="module" src="assets/js/script.js"></script>
 
 </body>
-
 </html>
